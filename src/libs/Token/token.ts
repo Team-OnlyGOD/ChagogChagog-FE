@@ -1,0 +1,29 @@
+import { ACCESS_TOKEN_KEY } from "../../constant/Token/token.constant";
+import Cookie from "../storage/Cookie";
+import { Storage } from "../Storage/Storage";
+
+class Token {
+  private storage: Storage;
+
+  constructor(storage: Storage) {
+    this.storage = storage;
+  }
+
+  public getToken(key: typeof ACCESS_TOKEN_KEY): string | undefined {
+    return this.storage.get(key);
+  }
+
+  public setToken(key: typeof ACCESS_TOKEN_KEY, value: string): void {
+    this.storage.set(key, value);
+  }
+
+  public removeToken(key: typeof ACCESS_TOKEN_KEY): void {
+    this.storage.remove(key);
+  }
+
+  public clearToken(): void {
+    this.storage.remove(ACCESS_TOKEN_KEY);
+  }
+}
+
+export default new Token(Cookie);
