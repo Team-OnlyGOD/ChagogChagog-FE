@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import { RecoilRoot } from "recoil";
 import Layout from "../Layout";
 import ThemeProvider from "../ThemeProvider";
+import { ToastContainer } from "react-toastify";
 
 interface Props {
   children: React.ReactNode;
@@ -14,6 +15,7 @@ const Provider = ({ children }: Props) => {
   return (
     <QueryClientProvider client={queryClient}>
       <RecoilRoot>
+        <ToastContainer limit={3} position="top-right" autoClose={3000} />
         <BrowserRouter>
           <ThemeProvider>
             <Layout>{children}</Layout>
