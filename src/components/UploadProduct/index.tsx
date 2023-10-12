@@ -26,7 +26,7 @@ const UploadProduct = ({ close }: Props) => {
     onChangeUploadData,
     onSubmitUploadData,
     uploadData,
-  } = useCreateProducts();
+  } = useCreateProducts({ close });
   return (
     <UploadContainer
       onSubmit={onSubmitUploadData}

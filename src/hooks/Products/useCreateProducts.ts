@@ -4,7 +4,11 @@ import { useQueryClient } from "react-query";
 import { useCreateProductsMutation } from "../../api/Products/mutation";
 import { toast } from "react-toastify";
 
-const useCreateProducts = () => {
+interface Props {
+  close: () => void;
+}
+
+const useCreateProducts = ({ close }: Props) => {
   const queryClient = useQueryClient();
 
   const uploadMutation = useUploadMutation();
@@ -63,6 +67,16 @@ const useCreateProducts = () => {
         onSuccess: () => {
           queryClient.invalidateQueries("");
           toast.success("성공");
+          close();
+          setUploadData({
+            count: 0,
+            imageUrl: "",
+            incomingPrice: 0,
+            name: "",
+            outgoingPrice: 0,
+            safetyCount: 0,
+          });
+          queryClient.invalidateQueries("products/getProducts");
         },
         onError: () => {},
       }
