@@ -18,7 +18,7 @@ export const Sidebar = () => {
             <S.Item
               onClick={() => navigate(item.path)}
               background={pathname === item.path ? item.background : ""}
-              border={pathname == item.path ? item.background : "#fff"}
+              border={pathname == item.path ? item.border : "#fff"}
             >
               <item.icon />
               <Text fontType="context">{item.name}</Text>
