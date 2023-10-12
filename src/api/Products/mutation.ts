@@ -1,6 +1,9 @@
 import { useMutation, useQuery } from "react-query";
 import {
   createProducts,
+  getInAndOutcoming,
+  getProductABC,
+  getProductDetail,
   getProducts,
   patchProductByABC,
   patchProductStatus,
@@ -23,3 +26,12 @@ export const usePatchProdcutByABC = () => {
   const mutation = useMutation(patchProductByABC);
   return mutation;
 };
+
+export const useGetProductABCQuery = () =>
+  useQuery("products/getProductsAbcType", () => getProductABC());
+
+export const useGetProductDetail = (id: string) =>
+  useQuery("products/getProductDetail", () => getProductDetail(id));
+
+export const useGetInAndOutcoming = (id: string) =>
+  useQuery("products/incoming_outgoing", () => getInAndOutcoming(id));

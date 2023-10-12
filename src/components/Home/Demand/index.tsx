@@ -1,4 +1,3 @@
-import { SELLING_TYPE } from "./constant";
 import {
   DemandFlex,
   DemandItemBox,
@@ -8,7 +7,7 @@ import {
 } from "./style";
 import Text from "../../common/Text/Text";
 import HelpIcon from "../../../assets/Icon/HelpIcon";
-import { useGetProductABCQuery } from "../../../api/Product/queies";
+import { useGetProductABCQuery } from "../../../api/Products/mutation";
 
 export type DayType = "year" | "month";
 
@@ -35,7 +34,7 @@ const Demand = () => {
               {data?.aproducts.map((data) => (
                 <DemandItemBox>
                   <Text fontType="p3">{data.name}</Text>
-                  <Text fontType="p3">{data.outgoingCount}</Text>
+                  <Text fontType="p3">{`${data.outgoingCount}회`}</Text>
                 </DemandItemBox>
               ))}
             </DemandItemWrap>
@@ -58,7 +57,7 @@ const Demand = () => {
               {data?.bproducts.map((data) => (
                 <DemandItemBox>
                   <Text fontType="p3">{data.name}</Text>
-                  <Text fontType="p3">{data.outgoingCount}</Text>
+                  <Text fontType="p3">{`${data.outgoingCount}회`}</Text>
                 </DemandItemBox>
               ))}
             </DemandItemWrap>
@@ -81,7 +80,7 @@ const Demand = () => {
               {data?.cproducts.map((data) => (
                 <DemandItemBox>
                   <Text fontType="p3">{data.name}</Text>
-                  <Text fontType="p3">{data.outgoingCount}</Text>
+                  <Text fontType="p3">{`${data.outgoingCount}회`}</Text>
                 </DemandItemBox>
               ))}
             </DemandItemWrap>

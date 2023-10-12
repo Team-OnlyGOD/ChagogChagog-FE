@@ -6,7 +6,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import {
   useGetInAndOutcoming,
   useGetProductDetail,
-} from "../../api/Product/queies";
+} from "../../api/Products/mutation";
 
 export const DetailPage = () => {
   const navigate = useNavigate();
