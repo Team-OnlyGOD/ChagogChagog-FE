@@ -1,5 +1,12 @@
+import Router from "./components/Router";
+import Provider from "./components/common/Provider";
+
 function App() {
-  return <div className="App"></div>;
+  return (
+    <Provider>
+      <Router />
+    </Provider>
+  );
 }
 
 export default App;
