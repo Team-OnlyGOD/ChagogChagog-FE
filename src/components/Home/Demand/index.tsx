@@ -16,13 +16,15 @@ export type DayType = "year" | "month";
 
 const Demand = () => {
   const { data } = useGetProductABCQuery();
+
+  if (!data) return <div />;
   return (
     <>
       <DemandFlex>
         {SELLING_TYPE.map((item) => (
           <DemandItemContainer>
             <DemandTitleFlex>
-              <Text fontType="H4">{item}</Text>
+              <Text fontType="H4">{item.label}</Text>
               <HelpIcon />
             </DemandTitleFlex>
             <div
@@ -34,10 +36,10 @@ const Demand = () => {
               }}
             >
               <DemandItemWrap>
-                {Array.from({ length: 10 }).map(() => (
-                  <DemandItemBox>
-                    <Text fontType="p3">뭐시기뭐시</Text>
-                    <Text fontType="p3">111회</Text>
+                {data[`${item.value}products`].map((item, index) => (
+                  <DemandItemBox key={index}>
+                    <Text fontType="p3">{item.name}</Text>
+                    <Text fontType="p3">{item.outgoingCount}회</Text>
                   </DemandItemBox>
                 ))}
               </DemandItemWrap>
