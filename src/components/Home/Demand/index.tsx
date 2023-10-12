@@ -10,11 +10,12 @@ import {
 } from "./style";
 import Text from "../../common/Text/Text";
 import HelpIcon from "../../../assets/Icon/HelpIcon";
+import { useGetProductABCQuery } from "../../../api/Product/queies";
 
 export type DayType = "year" | "month";
 
 const Demand = () => {
-  const [section, setSection] = useState<DayType>("year");
+  const { data } = useGetProductABCQuery();
   return (
     <>
       <DemandFlex>
