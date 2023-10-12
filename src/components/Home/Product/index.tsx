@@ -12,19 +12,10 @@ import {
   TableContainer,
 } from "./style";
 import CheckBox from "../../common/CheckBox";
-<<<<<<< Updated upstream
 import { ReactComponent as Green } from "../../../assets/svg/green.svg";
 import { ReactComponent as Red } from "../../../assets/svg/red.svg";
 import { ReactComponent as Orange } from "../../../assets/svg/orange.svg";
-=======
-<<<<<<< HEAD
 import ExportIcon from "../../../assets/Icon/ExportIcon";
-=======
-import { ReactComponent as Green } from "../../../assets/svg/green.svg";
-import { ReactComponent as Red } from "../../../assets/svg/red.svg";
-import { ReactComponent as Orange } from "../../../assets/svg/orange.svg";
->>>>>>> 19fb5d8f7096aa8dcf8934c448b19d89b6032c0b
->>>>>>> Stashed changes
 
 const Product = () => {
   const response = "DISCONTINUED";
