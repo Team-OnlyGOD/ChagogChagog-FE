@@ -1,8 +1,12 @@
 import { NavButtonProps } from "./types";
 import * as S from "./style";
 
-const NavButton = ({ isChecked, children }: NavButtonProps) => {
-  return <S.NavButtonBox isChecked={isChecked}>{children}</S.NavButtonBox>;
+const NavButton = ({ isChecked, children, onClick }: NavButtonProps) => {
+  return (
+    <S.NavButtonBox isChecked={isChecked} onClick={onClick}>
+      {children}
+    </S.NavButtonBox>
+  );
 };
 
 export default NavButton;

@@ -2,7 +2,7 @@ import * as SVG from "../../../assets/svg";
 
 export const SIDEBAR_ITEMS = [
   {
-    path: "/productlist",
+    path: "/",
     name: "재고 현황",
     icon: SVG.BoxIcon,
   },

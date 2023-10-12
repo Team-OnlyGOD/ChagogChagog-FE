@@ -5,6 +5,8 @@ export const NavButtonBox = styled.p<{ isChecked: boolean }>`
   padding-left: 16px;
   padding-right: 16px;
 
+  cursor: pointer;
+
   ${({ isChecked }) =>
     isChecked
       ? css`
