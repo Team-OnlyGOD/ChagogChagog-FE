@@ -1,5 +1,5 @@
 import { ACCESS_TOKEN_KEY } from "../../constant/Token/token.constant";
-import Cookie from "../storage/Cookie";
+import Cookie from "../Storage/cookie";
 import { Storage } from "../Storage/Storage";
 
 class Token {
