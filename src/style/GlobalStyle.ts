@@ -7,5 +7,10 @@ export const GlobalStyle = createGlobalStyle`
         padding: 0;
         box-sizing: border-box;
     }
+    
     ${reset}
+
+    body {
+        background-color: #fff;
+    }
 `;

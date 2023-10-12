@@ -1,10 +1,10 @@
+import Router from "./components/Router";
 import Provider from "./components/common/Provider";
-import { Sidebar } from "./components/common/Sidebar";
 
 function App() {
   return (
     <Provider>
-      <Sidebar />
+      <Router />
     </Provider>
   );
 }
