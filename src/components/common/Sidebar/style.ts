@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   width: 220px;
@@ -8,7 +8,6 @@ export const Container = styled.div`
   border-top-right-radius: 36px;
   border-bottom-right-radius: 36px;
   box-shadow: 4px 4px 20px 0px rgba(0, 0, 0, 0.08);
-  padding-left: 24px;
 `;
 
 export const Wrapper = styled.div`
@@ -30,10 +29,15 @@ export const ItemBox = styled.div`
   cursor: pointer;
 `;
 
-export const Item = styled.div`
+export const Item = styled.div<{ background: string; border: string }>`
   width: 100%;
   height: 56px;
   display: flex;
   align-items: center;
   gap: 10px;
+
+  padding-left: 24px;
+
+  background: ${({ background }) => background};
+  border-left: 4px solid ${({ border }) => border};
 `;

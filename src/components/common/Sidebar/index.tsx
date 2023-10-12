@@ -1,21 +1,25 @@
 import * as S from "./style";
 import * as SVG from "../../../assets/svg";
 import Text from "../Text/Text";
-import { useNavigate } from "react-router-dom";
+import { useLocation, useNavigate } from "react-router-dom";
 import { SIDEBAR_ITEMS } from "./constant";
 
 export const Sidebar = () => {
   const navigate = useNavigate();
-
+  const { pathname } = useLocation();
   return (
     <S.Container>
       <S.Wrapper>
-        <div onClick={() => navigate("/")}>
+        <div onClick={() => navigate("/")} style={{ textAlign: "center" }}>
           <SVG.Logo />
         </div>
         <S.ItemBox>
           {SIDEBAR_ITEMS.map((item) => (
-            <S.Item onClick={() => navigate(item.path)}>
+            <S.Item
+              onClick={() => navigate(item.path)}
+              background={pathname === item.path ? item.background : ""}
+              border={pathname == item.path ? item.background : "#fff"}
+            >
               <item.icon />
               <Text fontType="context">{item.name}</Text>
             </S.Item>
