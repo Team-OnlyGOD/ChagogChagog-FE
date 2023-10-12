@@ -18,6 +18,10 @@ export const createIncomingProduct = async (id: number) => {
   await customAxios.post(`/products/incoming/${id}`);
 };
 
+export const patchProductByABC = async () => {
+  await customAxios.patch("/products/abc_type");
+};
+
 export interface CreateProductsParam {
   name: string;
   count: number;

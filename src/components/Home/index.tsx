@@ -6,11 +6,16 @@ import { Flex, HomeSwitchContainer, ReloadButton, ReloadText } from "./style";
 import Product from "./Product";
 import Demand from "./Demand";
 import ReloadIcon from "../../assets/Icon/ReloadIcon";
+import { patchProductByABC } from "../../api/Products/api";
+import { useQueryClient } from "react-query";
+import { useNavigate } from "react-router-dom";
 
 type Section = "product" | "demand";
 
 const Home = () => {
   useTokenCheck();
+  const queryClient = useQueryClient();
+  const navigate = useNavigate();
   const [section, setSection] = useState<Section>("product");
   return (
     <>
@@ -32,7 +37,15 @@ const Home = () => {
         </Flex>
         <ReloadButton>
           <ReloadIcon />
-          <ReloadText>새로고침</ReloadText>
+          <ReloadText
+            onClick={() => {
+              patchProductByABC();
+              setSection("demand");
+              queryClient.invalidateQueries("products/getProductsAbcType");
+            }}
+          >
+            새로고침
+          </ReloadText>
         </ReloadButton>
       </HomeSwitchContainer>
       {section === "product" ? <Product /> : <Demand />}
