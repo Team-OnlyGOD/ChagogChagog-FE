@@ -32,6 +32,7 @@ export const DemandTitleFlex = styled.div`
 export const DemandItemBox = styled.div`
   width: 100%;
   height: 56px;
+  cursor: pointer;
 
   display: flex;
   align-items: center;
