@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Home from "../Home";
 import LoginPage from "../../pages/LoginPage";
 import HistoryPage from "../../pages/HistoryPage";
+import { DetailPage } from "../DetailPage";
 
 const Router = () => {
   return (
@@ -9,6 +10,7 @@ const Router = () => {
       <Route path="/login" element={<LoginPage />} />
       <Route path="/" element={<Home />} />
       <Route path="/history" element={<HistoryPage />} />
+      <Route path="/detail" element={<DetailPage />} />
     </Routes>
   );
 };

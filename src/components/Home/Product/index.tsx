@@ -19,9 +19,11 @@ import ExportIcon from "../../../assets/Icon/ExportIcon";
 import { Modal } from "../../common/Modal";
 import UploadProduct from "../../UploadProduct";
 import useModal from "../../../hooks/useModal";
+import { useNavigate } from "react-router-dom";
 
 const Product = () => {
   const response = "DISCONTINUED";
+  const navigate = useNavigate();
 
   const getStatusColor = (response: string) => {
     switch (response) {
@@ -75,7 +77,12 @@ const Product = () => {
               <CheckBox />
             </CheckBoxTH>
             <WhiteMiddleTH>{getStatusColor(response)} 판매중</WhiteMiddleTH>
-            <WhiteBigBoxTH>출고상품명</WhiteBigBoxTH>
+            <WhiteBigBoxTH
+              onClick={() => navigate("/detail")}
+              style={{ cursor: "pointer" }}
+            >
+              출고상품명
+            </WhiteBigBoxTH>
             <WhiteMiddleTH>총 재고</WhiteMiddleTH>
             <WhiteMiddleTH>안전 재고</WhiteMiddleTH>
             <WhiteMiddleTH>정상 재고</WhiteMiddleTH>
