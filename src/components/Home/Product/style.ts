@@ -20,6 +20,8 @@ export const MiddleTH = styled.div`
 export const WhiteMiddleTH = styled.div`
   width: 120px;
   height: 48px;
+  display: flex;
+  gap: 4px;
 
   display: flex;
   justify-content: center;

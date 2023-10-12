@@ -10,8 +10,26 @@ import {
   SmallButton,
 } from "./style";
 import CheckBox from "../../common/CheckBox";
+import { ReactComponent as Green } from "../../../assets/svg/green.svg";
+import { ReactComponent as Red } from "../../../assets/svg/red.svg";
+import { ReactComponent as Orange } from "../../../assets/svg/orange.svg";
 
 const Product = () => {
+  const response = "DISCONTINUED";
+
+  const getStatusColor = (response: string) => {
+    switch (response) {
+      case "ON_SALE":
+        return <Green />;
+
+      case "DISCONTINUED":
+        return <Orange />;
+
+      case "SOLD_OUT":
+        return <Red />;
+    }
+  };
+
   return (
     <>
       <ButtonWrap>
@@ -36,7 +54,7 @@ const Product = () => {
             <CheckBoxTH>
               <CheckBox />
             </CheckBoxTH>
-            <WhiteMiddleTH>판매상태</WhiteMiddleTH>
+            <WhiteMiddleTH>{getStatusColor(response)} 판매중</WhiteMiddleTH>
             <WhiteBigBoxTH>출고상품명</WhiteBigBoxTH>
             <WhiteMiddleTH>총 재고</WhiteMiddleTH>
             <WhiteMiddleTH>안전 재고</WhiteMiddleTH>
