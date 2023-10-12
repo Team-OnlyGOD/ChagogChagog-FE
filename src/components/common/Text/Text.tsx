@@ -22,10 +22,11 @@ const Text = ({
   width,
   ellipsis = false,
   whiteSpace = "nowrap",
+  style,
 }: Props) => {
   return (
     <StyledText
-      style={{ color, textAlign, width, whiteSpace }}
+      style={{ color, textAlign, width, whiteSpace, ...style }}
       fontType={fontType}
       ellipsis={ellipsis}
     >

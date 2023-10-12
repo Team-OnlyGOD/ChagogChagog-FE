@@ -1,4 +1,4 @@
-import styled, { CSSObject } from "styled-components";
+import styled from "styled-components";
 
 export const InputContainer = styled.div`
   display: flex;
@@ -14,8 +14,8 @@ export const InputTitle = styled.label`
   color: ${({ theme }) => theme.Gray700};
 `;
 
-export const Input = styled.input<{ customStyle?: CSSObject }>`
-  width: 446px;
+export const Input = styled.input`
+  width: 306px;
   height: 48px;
 
   border: 1px solid ${({ theme }) => theme.Gray400};
@@ -23,8 +23,6 @@ export const Input = styled.input<{ customStyle?: CSSObject }>`
 
   padding: 10px 16px;
   color: ${({ theme }) => theme.Gray900};
-
-  ${({ customStyle }) => customStyle}
 
   ::placeholder {
     color: ${({ theme }) => theme.Gray500};

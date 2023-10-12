@@ -1,4 +1,4 @@
-import React from "react";
+import React, { ChangeEvent } from "react";
 import {
   CheckBoxTH,
   MiddleTH,
@@ -16,6 +16,13 @@ import { ReactComponent as Green } from "../../../assets/svg/green.svg";
 import { ReactComponent as Red } from "../../../assets/svg/red.svg";
 import { ReactComponent as Orange } from "../../../assets/svg/orange.svg";
 import ExportIcon from "../../../assets/Icon/ExportIcon";
+<<<<<<< Updated upstream
+=======
+import useModal from "../../../hooks/useModal";
+import UploadProduct from "../../UploadProduct";
+import { Modal } from "../../common/Modal";
+ import { ModalBackground } from "../../common/Modal/style";
+>>>>>>> Stashed changes
 
 const Product = () => {
   const response = "DISCONTINUED";
@@ -33,6 +40,12 @@ const Product = () => {
     }
   };
 
+  const stopBubbling = (event: React.ChangeEvent<any>) => {
+    event.stopPropagation();
+  };
+
+  const { close, isOpen, open } = useModal();
+
   return (
     <>
       <TopWrap>
@@ -41,7 +54,7 @@ const Product = () => {
           <SmallButton>판매재개</SmallButton>
         </ButtonWrap>
         <ButtonWrap>
-          <SmallButton>재고등록</SmallButton>
+          <SmallButton onClick={open}>재고 등록</SmallButton>
           <SmallButton>
             <ExportIcon />
           </SmallButton>
@@ -75,6 +88,9 @@ const Product = () => {
           </Flex>
         ))}
       </TableContainer>
+      <Modal isOpened={isOpen} onClose={close}>
+        <UploadProduct />
+      </Modal>
     </>
   );
 };
