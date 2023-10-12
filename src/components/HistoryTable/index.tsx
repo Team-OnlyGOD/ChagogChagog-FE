@@ -1,10 +1,10 @@
+import { HistoryPropsType } from "../../types/Product/types";
 import Text from "../common/Text/Text";
 import * as S from "./style";
 
-export const HistoryTable = () => {
-  let response = "outcoming";
-  const categoryColor = response === "incoming" ? "#3787FF" : "#F44336";
-
+export const HistoryTable = ({ data }: HistoryPropsType) => {
+  const categoryColor = (response: "incoming" | "outgoing") =>
+    response === "incoming" ? "#3787FF" : "#F44336";
   return (
     <S.HistoryContainer>
       <S.HistoryWrapper>
@@ -18,17 +18,23 @@ export const HistoryTable = () => {
             <Text fontType="p2">재고 변동</Text>
           </div>
         </S.HistoryTitle>
-        {Array.from({ length: 5 }).map(() => (
+        {data.map((item) => (
           <S.HistoryContent>
             <div>
-              <Text fontType="p2">New Balance 530 White</Text>
+              <Text fontType="p2">{item.name}</Text>
             </div>
             <div>
-              <Text fontType="p2" color={categoryColor}>
-                입고
+              <Text fontType="p2" color={categoryColor(item.category)}>
+                {item.category}
               </Text>
-              <Text fontType="p2">2023.11.03</Text>
-              <Text fontType="p2">-2 (10 {"->"} 8)</Text>
+              <Text fontType="p2">{item.createdAt}</Text>
+              <Text fontType="p2">
+                {item.category === "incoming" && "+"}
+                {item.beforeIncomingOutgoingCount -
+                  item.incomingOutgoingCount}{" "}
+                ({item.beforeIncomingOutgoingCount} {"->"}{" "}
+                {item.incomingOutgoingCount})
+              </Text>
             </div>
           </S.HistoryContent>
         ))}

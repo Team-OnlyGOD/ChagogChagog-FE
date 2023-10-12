@@ -1,5 +1,3 @@
-import { useState } from "react";
-import { Switch, SwitchWrap } from "../../common/Switch/Switch";
 import { SELLING_TYPE } from "./constant";
 import {
   DemandFlex,
@@ -11,11 +9,13 @@ import {
 import Text from "../../common/Text/Text";
 import HelpIcon from "../../../assets/Icon/HelpIcon";
 import { useGetProductABCQuery } from "../../../api/Product/queies";
+import { useNavigate } from "react-router-dom";
 
 export type DayType = "year" | "month";
 
 const Demand = () => {
   const { data } = useGetProductABCQuery();
+  const naviate = useNavigate();
 
   if (!data) return <div />;
   return (
@@ -37,7 +37,10 @@ const Demand = () => {
             >
               <DemandItemWrap>
                 {data[`${item.value}products`].map((item, index) => (
-                  <DemandItemBox key={index}>
+                  <DemandItemBox
+                    onClick={() => naviate(`/detail/${item.productId}`)}
+                    key={index}
+                  >
                     <Text fontType="p3">{item.name}</Text>
                     <Text fontType="p3">{item.outgoingCount}회</Text>
                   </DemandItemBox>
