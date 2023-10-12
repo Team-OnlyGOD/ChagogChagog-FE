@@ -64,7 +64,7 @@ const Product = () => {
                   {SaleStatusTransfor(data.saleStatus)?.status}
                 </WhiteMiddleTH>
                 <WhiteBigBoxTH
-                  onClick={() => navigate("/detail")}
+                  onClick={() => navigate(`/detail/${data.productId}`)}
                   style={{ cursor: "pointer" }}
                 >
                   {data.name}
