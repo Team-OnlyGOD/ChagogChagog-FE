@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const Container = styled.div`
   width: 100%;
@@ -7,9 +7,13 @@ export const Container = styled.div`
   display: flex;
 `;
 
-export const Wrap = styled.div`
-  width: calc(100% - 220px);
+export const Wrap = styled.div<{ isSign: boolean }>`
+  width: ${({ isSign }) => (isSign ? "100%" : "calc(100% - 220px)")};
   height: 100vh;
 
-  padding: 64px 60px;
+  ${({ isSign }) =>
+    !isSign &&
+    css`
+      padding: 64px 60px;
+    `}
 `;
