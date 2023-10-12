@@ -1,4 +1,4 @@
-import React, { ChangeEvent } from "react";
+import React from "react";
 import {
   CheckBoxTH,
   MiddleTH,
@@ -12,37 +12,18 @@ import {
   TableContainer,
 } from "./style";
 import CheckBox from "../../common/CheckBox";
-import { ReactComponent as Green } from "../../../assets/svg/green.svg";
-import { ReactComponent as Red } from "../../../assets/svg/red.svg";
-import { ReactComponent as Orange } from "../../../assets/svg/orange.svg";
 import ExportIcon from "../../../assets/Icon/ExportIcon";
 import { Modal } from "../../common/Modal";
 import UploadProduct from "../../UploadProduct";
 import useModal from "../../../hooks/useModal";
 import { useNavigate } from "react-router-dom";
+import { useGetAllProductsQuery } from "../../../api/Products/mutation";
+import { SaleStatusTransfor } from "./util";
 
 const Product = () => {
-  const response = "DISCONTINUED";
   const navigate = useNavigate();
-
-  const getStatusColor = (response: string) => {
-    switch (response) {
-      case "ON_SALE":
-        return <Green />;
-
-      case "DISCONTINUED":
-        return <Orange />;
-
-      case "SOLD_OUT":
-        return <Red />;
-    }
-  };
-
-  const stopBubbling = (event: React.ChangeEvent<any>) => {
-    event.stopPropagation();
-  };
-
   const { close, isOpen, open } = useModal();
+  const { data } = useGetAllProductsQuery();
 
   return (
     <>
@@ -71,28 +52,35 @@ const Product = () => {
           <MiddleTH>분량 재고</MiddleTH>
           <MiddleTH>제조일자</MiddleTH>
         </Flex>
-        {Array.from({ length: 6 }).map(() => (
-          <Flex>
-            <CheckBoxTH>
-              <CheckBox />
-            </CheckBoxTH>
-            <WhiteMiddleTH>{getStatusColor(response)} 판매중</WhiteMiddleTH>
-            <WhiteBigBoxTH
-              onClick={() => navigate("/detail")}
-              style={{ cursor: "pointer" }}
-            >
-              출고상품명
-            </WhiteBigBoxTH>
-            <WhiteMiddleTH>총 재고</WhiteMiddleTH>
-            <WhiteMiddleTH>안전 재고</WhiteMiddleTH>
-            <WhiteMiddleTH>정상 재고</WhiteMiddleTH>
-            <WhiteMiddleTH>분량 재고</WhiteMiddleTH>
-            <WhiteMiddleTH>제조일자</WhiteMiddleTH>
-          </Flex>
-        ))}
+        {data?.products.map((data) => {
+          return (
+            <>
+              <Flex>
+                <CheckBoxTH>
+                  <CheckBox />
+                </CheckBoxTH>
+                <WhiteMiddleTH>
+                  {SaleStatusTransfor(data.saleStatus)?.icon}
+                  {SaleStatusTransfor(data.saleStatus)?.status}
+                </WhiteMiddleTH>
+                <WhiteBigBoxTH
+                  onClick={() => navigate("/detail")}
+                  style={{ cursor: "pointer" }}
+                >
+                  {data.name}
+                </WhiteBigBoxTH>
+                <WhiteMiddleTH>{data.count}</WhiteMiddleTH>
+                <WhiteMiddleTH>{data.safetyCount}</WhiteMiddleTH>
+                <WhiteMiddleTH>{data.normalCount}</WhiteMiddleTH>
+                <WhiteMiddleTH>{data.badCount}</WhiteMiddleTH>
+                <WhiteMiddleTH>{data.createdAt}</WhiteMiddleTH>
+              </Flex>
+            </>
+          );
+        })}
       </TableContainer>
       <Modal isOpened={isOpen} onClose={close}>
-        <UploadProduct />
+        <UploadProduct close={close} />
       </Modal>
     </>
   );

@@ -15,7 +15,11 @@ import TextInput from "../common/TextInput/TextInput";
 import SmallInput from "../common/SmallInput";
 import useCreateProducts from "../../hooks/Products/useCreateProducts";
 
-const UploadProduct = () => {
+interface Props {
+  close: () => void;
+}
+
+const UploadProduct = ({ close }: Props) => {
   const {
     fileName,
     onChangeImage,
@@ -86,7 +90,7 @@ const UploadProduct = () => {
           </Flex>
         </UploadInputContainer>
         <ButtonWrapper>
-          <CancelButton>취소</CancelButton>
+          <CancelButton onClick={close}>취소</CancelButton>
           <SubmitButton>등록</SubmitButton>
         </ButtonWrapper>
       </Wrap>
