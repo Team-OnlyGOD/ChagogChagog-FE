@@ -1,5 +1,12 @@
+import Provider from './components/common/Provider';
+import { Sidebar } from './components/common/Sidebar';
+
 function App() {
-  return <div className="App"></div>;
+  return (
+    <Provider>
+      <Sidebar />
+    </Provider>
+  );
 }
 
 export default App;
