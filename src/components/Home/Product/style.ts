@@ -14,6 +14,7 @@ export const MiddleTH = styled.div`
 
   background-color: ${({ theme }) => theme.Gray50};
   border-right: 1px solid ${({ theme }) => theme.Gray300};
+  border-bottom: 1px solid ${({ theme }) => theme.Gray300};
 `;
 
 export const WhiteMiddleTH = styled.div`
@@ -26,6 +27,7 @@ export const WhiteMiddleTH = styled.div`
 
   background-color: #fff;
   border-right: 1px solid ${({ theme }) => theme.Gray300};
+  border-bottom: 1px solid ${({ theme }) => theme.Gray300};
 `;
 
 export const CheckBoxTH = styled.div`
@@ -37,6 +39,7 @@ export const CheckBoxTH = styled.div`
   align-items: center;
   background-color: ${({ theme }) => theme.Gray50};
   border-right: 1px solid ${({ theme }) => theme.Gray300};
+  border-bottom: 1px solid ${({ theme }) => theme.Gray300};
 `;
 
 export const BigBoxTH = styled.div`
@@ -50,6 +53,7 @@ export const BigBoxTH = styled.div`
   border-right: 1px solid ${({ theme }) => theme.Gray300};
 
   background-color: ${({ theme }) => theme.Gray50};
+  border-bottom: 1px solid ${({ theme }) => theme.Gray300};
 `;
 
 export const WhiteBigBoxTH = styled.div`
@@ -63,6 +67,7 @@ export const WhiteBigBoxTH = styled.div`
   border-right: 1px solid ${({ theme }) => theme.Gray300};
 
   background-color: #fff;
+  border-bottom: 1px solid ${({ theme }) => theme.Gray300};
 `;
 
 export const ButtonWrap = styled.div`
