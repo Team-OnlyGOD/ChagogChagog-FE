@@ -58,8 +58,8 @@ export const SubmitButton = styled.button`
   height: 40px;
 
   border-radius: 6px;
-  background: ${({ theme }) => theme.Gray500};
+  background: ${({ theme }) => theme.Primary_blue};
   border: none;
-  color: ${({ theme }) => theme.Gray300};
+  color: #fff;
   cursor: pointer;
 `;
