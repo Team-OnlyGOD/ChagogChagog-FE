@@ -8,11 +8,23 @@ import {
   WhiteMiddleTH,
   ButtonWrap,
   SmallButton,
+  TopWrap,
+  TableContainer,
 } from "./style";
 import CheckBox from "../../common/CheckBox";
+<<<<<<< Updated upstream
 import { ReactComponent as Green } from "../../../assets/svg/green.svg";
 import { ReactComponent as Red } from "../../../assets/svg/red.svg";
 import { ReactComponent as Orange } from "../../../assets/svg/orange.svg";
+=======
+<<<<<<< HEAD
+import ExportIcon from "../../../assets/Icon/ExportIcon";
+=======
+import { ReactComponent as Green } from "../../../assets/svg/green.svg";
+import { ReactComponent as Red } from "../../../assets/svg/red.svg";
+import { ReactComponent as Orange } from "../../../assets/svg/orange.svg";
+>>>>>>> 19fb5d8f7096aa8dcf8934c448b19d89b6032c0b
+>>>>>>> Stashed changes
 
 const Product = () => {
   const response = "DISCONTINUED";
@@ -32,11 +44,19 @@ const Product = () => {
 
   return (
     <>
-      <ButtonWrap>
-        <SmallButton>판매중지</SmallButton>
-        <SmallButton>판매재개</SmallButton>
-      </ButtonWrap>
-      <div style={{ marginTop: "24px" }}>
+      <TopWrap>
+        <ButtonWrap>
+          <SmallButton>판매중지</SmallButton>
+          <SmallButton>판매재개</SmallButton>
+        </ButtonWrap>
+        <ButtonWrap>
+          <SmallButton>재고등록</SmallButton>
+          <SmallButton>
+            <ExportIcon />
+          </SmallButton>
+        </ButtonWrap>
+      </TopWrap>
+      <TableContainer>
         <Flex>
           <CheckBoxTH>
             <CheckBox />
@@ -63,7 +83,7 @@ const Product = () => {
             <WhiteMiddleTH>제조일자</WhiteMiddleTH>
           </Flex>
         ))}
-      </div>
+      </TableContainer>
     </>
   );
 };

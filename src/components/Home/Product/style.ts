@@ -1,7 +1,19 @@
 import styled from "styled-components";
 
+export const TopWrap = styled.div`
+  width: 100%;
+
+  display: flex;
+  justify-content: space-between;
+`;
+
 export const Flex = styled.div`
   display: flex;
+`;
+
+export const TableContainer = styled.div`
+  width: 100%;
+  margin-top: 24px;
 `;
 
 export const MiddleTH = styled.div`
@@ -45,7 +57,7 @@ export const CheckBoxTH = styled.div`
 `;
 
 export const BigBoxTH = styled.div`
-  width: 320px;
+  width: 420px;
 
   height: 48px;
 
@@ -59,7 +71,7 @@ export const BigBoxTH = styled.div`
 `;
 
 export const WhiteBigBoxTH = styled.div`
-  width: 320px;
+  width: 420px;
 
   height: 48px;
 

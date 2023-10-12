@@ -22,6 +22,7 @@ export const LoginWrapper = styled.div`
   margin: auto 0 40px;
   cursor: pointer;
   line-height: 56px;
+  padding-left: 24px;
 `;
 
 export const ItemBox = styled.div`
