@@ -16,13 +16,9 @@ import { ReactComponent as Green } from "../../../assets/svg/green.svg";
 import { ReactComponent as Red } from "../../../assets/svg/red.svg";
 import { ReactComponent as Orange } from "../../../assets/svg/orange.svg";
 import ExportIcon from "../../../assets/Icon/ExportIcon";
-<<<<<<< Updated upstream
-=======
-import useModal from "../../../hooks/useModal";
-import UploadProduct from "../../UploadProduct";
 import { Modal } from "../../common/Modal";
- import { ModalBackground } from "../../common/Modal/style";
->>>>>>> Stashed changes
+import UploadProduct from "../../UploadProduct";
+import useModal from "../../../hooks/useModal";
 
 const Product = () => {
   const response = "DISCONTINUED";
