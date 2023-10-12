@@ -1,7 +1,13 @@
 import { useState } from "react";
 import { Switch, SwitchWrap } from "../../common/Switch/Switch";
 import { SELLING_TYPE } from "./constant";
-import { DemandFlex, DemandItemBox } from "./style";
+import {
+  DemandFlex,
+  DemandItemBox,
+  DemandItemContainer,
+  DemandItemWrap,
+  DemandTitleFlex,
+} from "./style";
 import Text from "../../common/Text/Text";
 import HelpIcon from "../../../assets/Icon/HelpIcon";
 
@@ -28,18 +34,18 @@ const Demand = () => {
 
       <DemandFlex>
         {SELLING_TYPE.map((item) => (
-          <DemandItemBox>
-            <div
-              style={{
-                display: "flex",
-                alignItems: "center",
-                columnGap: "8px",
-              }}
-            >
+          <DemandItemContainer>
+            <DemandTitleFlex>
               <Text fontType="H4">{item}</Text>
               <HelpIcon />
-            </div>
-          </DemandItemBox>
+            </DemandTitleFlex>
+
+            <DemandItemWrap>
+              {Array.from({ length: 10 }).map(() => (
+                <DemandItemBox>하이</DemandItemBox>
+              ))}
+            </DemandItemWrap>
+          </DemandItemContainer>
         ))}
       </DemandFlex>
     </>

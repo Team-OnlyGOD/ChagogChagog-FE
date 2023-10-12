@@ -1,16 +1,17 @@
 import styled from "styled-components";
 
-export const DemandItemBox = styled.div`
+export const DemandItemContainer = styled.div`
   display: flex;
   width: 347px;
   height: 500px;
 
   overflow: auto;
-  padding: 24px 12px 12px 12px;
   flex-direction: column;
 
+  overflow: auto;
   border-radius: 24px;
-  border: 1px solid var(--gray-scale-gray-200, #eef0f2);
+  border: 1px solid ${({ theme }) => theme.Gray200};
+  padding: 24px 12px 12px 12px;
 `;
 
 export const DemandFlex = styled.div`
@@ -19,4 +20,33 @@ export const DemandFlex = styled.div`
   width: 100%;
 
   column-gap: 30px;
+`;
+
+export const DemandTitleFlex = styled.div`
+  display: flex;
+  column-gap: 8px;
+`;
+
+export const DemandItemBox = styled.div`
+  width: 100%;
+  height: 56px;
+
+  justify-content: space-between;
+
+  padding: 0 16px 0 16px;
+
+  border-radius: 12px;
+  background: ${({ theme }) => theme.Gray50};
+`;
+
+export const DemandItemWrap = styled.div`
+  width: 100%;
+
+  display: flex;
+  flex-direction: column;
+  row-gap: 12px;
+
+  overflow: auto;
+  margin-top: 24px;
+  background-color: aqua;
 `;
