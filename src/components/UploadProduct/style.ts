@@ -1,21 +1,56 @@
 import styled from "styled-components";
 
-export const UploadContainer = styled.div`
+export const UploadContainer = styled.form`
   width: 720px;
-  height: 600px;
+  height: 650px;
 
   padding: 36px;
 
   border-radius: 16px;
   background: #fff;
   z-index: 30;
+  input[type="file"] {
+    display: none;
+  }
+`;
+
+export const ImageUpload = styled.input``;
+
+export const ImageBox = styled.label`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 151px;
+  height: 40px;
+
+  border-radius: 6px;
+  border: 1px ${({ theme }) => theme.Gray400};
+  background: ${({ theme }) => theme.Primary_blue};
+  color: #fff;
+`;
+
+export const ImageUploadText = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  color: #fff;
+  font-size: 16px;
+  font-weight: 500;
+
+  width: 151px;
+  height: 40px;
+
+  background: ${({ theme }) => theme.Primary_blue};
+  border-radius: 6px;
 `;
 
 export const UploadInputContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  row-gap: 48px;
+  row-gap: 36px;
 `;
 
 export const TitleFlex = styled.div`
