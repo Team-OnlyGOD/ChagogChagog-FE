@@ -3,6 +3,7 @@ import Home from "../Home";
 import LoginPage from "../../pages/LoginPage";
 import HistoryPage from "../../pages/HistoryPage";
 import { DetailPage } from "../DetailPage";
+import NoticePage from "../../pages/NoticePage";
 
 const Router = () => {
   return (
@@ -11,6 +12,7 @@ const Router = () => {
       <Route path="/" element={<Home />} />
       <Route path="/history" element={<HistoryPage />} />
       <Route path="/detail" element={<DetailPage />} />
+      <Route path="/notice" element={<NoticePage />} />
     </Routes>
   );
 };
