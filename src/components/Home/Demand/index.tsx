@@ -23,36 +23,69 @@ const Demand = () => {
             <Text fontType="H4">주문이 가장 많은 상품</Text>
             <HelpIcon />
           </DemandTitleFlex>
-          {data?.aproducts.map((data) => (
-            <DemandItemBox>
-              <Text fontType="p3">{data.name}</Text>
-              <Text fontType="p3">{`${data.outgoingCount}회`}</Text>
-            </DemandItemBox>
-          ))}
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              overflow: "auto",
+              marginTop: "20px",
+            }}
+          >
+            <DemandItemWrap>
+              {data?.aproducts.map((data) => (
+                <DemandItemBox>
+                  <Text fontType="p3">{data.name}</Text>
+                  <Text fontType="p3">{data.outgoingCount}</Text>
+                </DemandItemBox>
+              ))}
+            </DemandItemWrap>
+          </div>
         </DemandItemContainer>
         <DemandItemContainer>
           <DemandTitleFlex>
             <Text fontType="H4">지속적인 주문이 많은 상품</Text>
             <HelpIcon />
           </DemandTitleFlex>
-          {data?.bproducts.map((data) => (
-            <DemandItemBox>
-              <Text fontType="p3">{data.name}</Text>
-              <Text fontType="p3">{`${data.outgoingCount}회`}</Text>
-            </DemandItemBox>
-          ))}
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              overflow: "auto",
+              marginTop: "20px",
+            }}
+          >
+            <DemandItemWrap>
+              {data?.bproducts.map((data) => (
+                <DemandItemBox>
+                  <Text fontType="p3">{data.name}</Text>
+                  <Text fontType="p3">{data.outgoingCount}</Text>
+                </DemandItemBox>
+              ))}
+            </DemandItemWrap>
+          </div>
         </DemandItemContainer>
         <DemandItemContainer>
           <DemandTitleFlex>
             <Text fontType="H4">주문이 가장 적은 상품</Text>
             <HelpIcon />
           </DemandTitleFlex>
-          {data?.cproducts.map((data) => (
-            <DemandItemBox>
-              <Text fontType="p3">{data.name}</Text>
-              <Text fontType="p3">{`${data.outgoingCount}회`}</Text>
-            </DemandItemBox>
-          ))}
+          <div
+            style={{
+              width: "100%",
+              height: "100%",
+              overflow: "auto",
+              marginTop: "20px",
+            }}
+          >
+            <DemandItemWrap>
+              {data?.cproducts.map((data) => (
+                <DemandItemBox>
+                  <Text fontType="p3">{data.name}</Text>
+                  <Text fontType="p3">{data.outgoingCount}</Text>
+                </DemandItemBox>
+              ))}
+            </DemandItemWrap>
+          </div>
         </DemandItemContainer>
       </DemandFlex>
     </>
