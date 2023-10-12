@@ -11,7 +11,7 @@ export const DemandItemContainer = styled.div`
   overflow: auto;
   border-radius: 24px;
   border: 1px solid ${({ theme }) => theme.Gray200};
-  padding: 24px 12px 12px 12px;
+  padding: 24px 12px 0px 12px;
 `;
 
 export const DemandFlex = styled.div`
@@ -20,6 +20,8 @@ export const DemandFlex = styled.div`
   width: 100%;
 
   column-gap: 30px;
+
+  margin-top: 24px;
 `;
 
 export const DemandTitleFlex = styled.div`
@@ -31,6 +33,8 @@ export const DemandItemBox = styled.div`
   width: 100%;
   height: 56px;
 
+  display: flex;
+  align-items: center;
   justify-content: space-between;
 
   padding: 0 16px 0 16px;
@@ -44,9 +48,6 @@ export const DemandItemWrap = styled.div`
 
   display: flex;
   flex-direction: column;
-  row-gap: 12px;
 
-  overflow: auto;
-  margin-top: 24px;
-  background-color: aqua;
+  row-gap: 12px;
 `;

@@ -17,21 +17,6 @@ const Demand = () => {
   const [section, setSection] = useState<DayType>("year");
   return (
     <>
-      <SwitchWrap customStyle={{ marginTop: "24px" }}>
-        <Switch
-          onClick={() => setSection("year")}
-          isClicked={section === "year" ? true : false}
-        >
-          연간
-        </Switch>
-        <Switch
-          onClick={() => setSection("month")}
-          isClicked={section === "month" ? true : false}
-        >
-          월간
-        </Switch>
-      </SwitchWrap>
-
       <DemandFlex>
         {SELLING_TYPE.map((item) => (
           <DemandItemContainer>
@@ -39,12 +24,23 @@ const Demand = () => {
               <Text fontType="H4">{item}</Text>
               <HelpIcon />
             </DemandTitleFlex>
-
-            <DemandItemWrap>
-              {Array.from({ length: 10 }).map(() => (
-                <DemandItemBox>하이</DemandItemBox>
-              ))}
-            </DemandItemWrap>
+            <div
+              style={{
+                width: "100%",
+                height: "100%",
+                overflow: "auto",
+                marginTop: "20px",
+              }}
+            >
+              <DemandItemWrap>
+                {Array.from({ length: 10 }).map(() => (
+                  <DemandItemBox>
+                    <Text fontType="p3">뭐시기뭐시</Text>
+                    <Text fontType="p3">111회</Text>
+                  </DemandItemBox>
+                ))}
+              </DemandItemWrap>
+            </div>
           </DemandItemContainer>
         ))}
       </DemandFlex>
