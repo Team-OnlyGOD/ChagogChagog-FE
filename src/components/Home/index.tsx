@@ -1,5 +1,8 @@
+import useTokenCheck from "../../hooks/Auth/useTokenCheck";
+
 const Home = () => {
-  return <div></div>;
+  useTokenCheck();
+  return <div>home</div>;
 };
 
 export default Home;
