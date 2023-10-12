@@ -1,5 +1,5 @@
-import cookie from "js-cookie";
-import { Storage } from "./Storage";
+import cookie from 'js-cookie';
+import { Storage } from './Storage';
 
 class Cookie implements Storage {
   get(key: string): string | undefined {
