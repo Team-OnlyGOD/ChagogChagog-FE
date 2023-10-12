@@ -24,7 +24,6 @@ const useCreateProducts = () => {
     let image: File;
     image = event.target.files[0];
     setFileName(image);
-    console.log(image);
 
     const formData = new FormData();
     formData.append("image", image);
@@ -65,9 +64,7 @@ const useCreateProducts = () => {
           queryClient.invalidateQueries("");
           toast.success("성공");
         },
-        onError: () => {
-          console.log("에러");
-        },
+        onError: () => {},
       }
     );
   };

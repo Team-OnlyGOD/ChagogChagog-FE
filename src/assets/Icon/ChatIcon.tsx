@@ -1,6 +1,10 @@
 import React from "react";
 
-const ChatIcon = () => {
+interface Props {
+  onClick: () => void;
+}
+
+const ChatIcon = ({ onClick }: Props) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
@@ -8,6 +12,7 @@ const ChatIcon = () => {
       height="60"
       viewBox="0 0 60 60"
       fill="none"
+      onClick={onClick}
       style={{
         position: "fixed",
         right: "60px",
