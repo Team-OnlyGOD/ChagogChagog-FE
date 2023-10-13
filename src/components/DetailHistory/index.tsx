@@ -1,4 +1,3 @@
-import * as S from "./style";
 import * as SVG from "../../assets/svg";
 import Text from "../common/Text/Text";
 import { HistoryTable } from "../HistoryTable";
@@ -7,6 +6,7 @@ import {
   useGetInAndOutcoming,
   useGetProductDetail,
 } from "../../api/Products/mutation";
+import * as S from "./style";
 import { DetailHistoryTable } from "../DetailTable";
 
 export const DetailPage = () => {
@@ -14,7 +14,6 @@ export const DetailPage = () => {
   const params = useParams();
   const productId = params.id;
   const { data } = useGetProductDetail(productId ?? "");
-  const { data: inAndOutcomingData } = useGetInAndOutcoming(productId ?? "");
   return (
     <S.DetailContainer>
       <span
@@ -52,7 +51,7 @@ export const DetailPage = () => {
           </S.DetailInfo>
         </S.DetailContent>
       </S.DetailWrapper>
-      <DetailHistoryTable id={productId!!} />
+      {productId && <DetailHistoryTable id={productId} />}
     </S.DetailContainer>
   );
 };

@@ -1,8 +1,4 @@
-import {
-  useGetInAndOutcoming,
-  useGetProductHistory,
-} from "../../api/Products/mutation";
-import { HistoryPropsType } from "../../types/Product/types";
+import { useGetInAndOutcoming } from "../../api/Products/mutation";
 import Text from "../common/Text/Text";
 import * as S from "./style";
 
@@ -10,8 +6,9 @@ interface Props {
   id: string;
 }
 
-export const HistoryTable = () => {
-  const { data } = useGetProductHistory();
+export const DetailHistoryTable = ({ id }: Props) => {
+  const { data } = useGetInAndOutcoming(id);
+  console.log(data);
 
   const categoryColor = (response: "incoming" | "outgoing" | string) =>
     response === "incoming" ? "#3787FF" : "#F44336";
@@ -36,7 +33,7 @@ export const HistoryTable = () => {
             </div>
             <div>
               <Text fontType="p2" color={categoryColor(item.category)}>
-                {item.category}
+                {item.category === "incoming" ? "입고" : "출고"}
               </Text>
               <Text fontType="p2">{item.createdAt}</Text>
               <Text fontType="p2">

@@ -1,3 +1,4 @@
+import { atomFamily } from "recoil";
 import { customAxios } from "../../libs/Axios/customAxios";
 import {
   GetInAndOutcomingResponse,
@@ -48,6 +49,13 @@ export const patchProductByABC = async () => {
   await customAxios.patch("/products/abc_type");
 };
 
+export const getProductHistory = async () => {
+  const { data } = await customAxios.get<HistoryResponse>(
+    "/products/incoming_outgoing"
+  );
+  return data;
+};
+
 export interface CreateProductsParam {
   name: string;
   count: number;
@@ -77,4 +85,16 @@ export interface ProductResponse {
 export interface PatchProductStatusParam {
   saleStatus: SaleStatus | string;
   productIds: number[];
+}
+
+export interface HistoryResponse {
+  incomingOutgoingProducts: [
+    {
+      name: string;
+      category: string;
+      createdAt: string;
+      beforeIncomingOutgoingCount: number;
+      incomingOutgoingCount: number;
+    }
+  ];
 }

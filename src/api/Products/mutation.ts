@@ -4,6 +4,7 @@ import {
   getInAndOutcoming,
   getProductABC,
   getProductDetail,
+  getProductHistory,
   getProducts,
   patchProductByABC,
   patchProductStatus,
@@ -35,3 +36,6 @@ export const useGetProductDetail = (id: string) =>
 
 export const useGetInAndOutcoming = (id: string) =>
   useQuery("products/incoming_outgoing", () => getInAndOutcoming(id));
+
+export const useGetProductHistory = () =>
+  useQuery("products/productsHistory", () => getProductHistory());
