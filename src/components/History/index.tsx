@@ -1,4 +1,3 @@
-import { useGetProductHistory } from "../../api/Products/mutation";
 import { HistoryTable } from "../HistoryTable";
 import Text from "../common/Text/Text";
 

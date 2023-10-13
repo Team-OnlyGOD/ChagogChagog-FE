@@ -1,12 +1,8 @@
 import * as S from "./style";
 import * as SVG from "../../assets/svg";
 import Text from "../common/Text/Text";
-import { HistoryTable } from "../HistoryTable";
 import { useNavigate, useParams } from "react-router-dom";
-import {
-  useGetInAndOutcoming,
-  useGetProductDetail,
-} from "../../api/Products/mutation";
+import { useGetProductDetail } from "../../api/Products/mutation";
 import { DetailHistoryTable } from "../DetailTable";
 
 export const DetailPage = () => {
@@ -14,7 +10,6 @@ export const DetailPage = () => {
   const params = useParams();
   const productId = params.id;
   const { data } = useGetProductDetail(productId ?? "");
-  const { data: inAndOutcomingData } = useGetInAndOutcoming(productId ?? "");
   return (
     <S.DetailContainer>
       <span
@@ -25,7 +20,7 @@ export const DetailPage = () => {
         <Text fontType="p2">뒤로 가기</Text>
       </span>
       <S.DetailWrapper>
-        <S.DetailImg src={data?.imageUrl} />
+        <S.DetailImg src={data?.imageUrl} alt="" />
         <S.DetailContent>
           <Text fontType="H2">{data?.name}</Text>
           <div>
