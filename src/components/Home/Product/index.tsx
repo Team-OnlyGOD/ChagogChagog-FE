@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   CheckBoxTH,
   MiddleTH,
@@ -10,6 +10,7 @@ import {
   SmallButton,
   TopWrap,
   TableContainer,
+  UnCheckBox,
 } from "./style";
 import CheckBox from "../../common/CheckBox";
 import ExportIcon from "../../../assets/Icon/ExportIcon";
@@ -19,18 +20,34 @@ import useModal from "../../../hooks/useModal";
 import { useNavigate } from "react-router-dom";
 import { useGetAllProductsQuery } from "../../../api/Products/mutation";
 import { SaleStatusTransfor } from "./util";
+import usePatchProductsStatus from "../../../hooks/Products/usePatchProductsStatus";
+import CheckIcon from "../../../assets/Icon/CheckIcon";
 
 const Product = () => {
   const navigate = useNavigate();
   const { close, isOpen, open } = useModal();
+  const { onChangeIdList, onChangeSaleStatusList, onSubmitSaleStatus, idList } =
+    usePatchProductsStatus();
   const { data } = useGetAllProductsQuery();
-
+  const [isClick, setIsClick] = useState(false);
   return (
     <>
       <TopWrap>
         <ButtonWrap>
-          <SmallButton>판매중지</SmallButton>
-          <SmallButton>판매재개</SmallButton>
+          <SmallButton
+            onClick={() => {
+              onSubmitSaleStatus("DISCONTINUED");
+            }}
+          >
+            판매중지
+          </SmallButton>
+          <SmallButton
+            onClick={() => {
+              onSubmitSaleStatus("ON_SALE");
+            }}
+          >
+            판매재개
+          </SmallButton>
         </ButtonWrap>
         <ButtonWrap>
           <SmallButton onClick={open}>재고 등록</SmallButton>
@@ -42,7 +59,7 @@ const Product = () => {
       <TableContainer>
         <Flex>
           <CheckBoxTH>
-            <CheckBox />
+            <UnCheckBox />
           </CheckBoxTH>
           <MiddleTH>판매상태</MiddleTH>
           <BigBoxTH>출고상품명</BigBoxTH>
@@ -57,7 +74,13 @@ const Product = () => {
             <>
               <Flex>
                 <CheckBoxTH>
-                  <CheckBox />
+                  {idList.includes(data.productId) ? (
+                    <CheckIcon onClick={() => onChangeIdList(data.productId)} />
+                  ) : (
+                    <UnCheckBox
+                      onClick={() => onChangeIdList(data.productId)}
+                    />
+                  )}
                 </CheckBoxTH>
                 <WhiteMiddleTH>
                   {SaleStatusTransfor(data.saleStatus)?.icon}

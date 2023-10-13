@@ -104,3 +104,13 @@ export const SmallButton = styled.button`
 
   margin-top: 24px;
 `;
+
+export const UnCheckBox = styled.div`
+  width: 20px;
+  height: 20px;
+
+  background-color: #fff;
+  border-radius: 5px;
+  border: 1px solid ${({ theme }) => theme.Gray400};
+  cursor: pointer;
+`;

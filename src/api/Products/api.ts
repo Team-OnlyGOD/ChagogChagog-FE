@@ -37,8 +37,8 @@ export const getProducts = async () => {
   return data;
 };
 
-export const patchProductStatus = async () => {
-  await customAxios.patch("/products/sale_status");
+export const patchProductStatus = async (param: PatchProductStatusParam) => {
+  await customAxios.patch("/products/sale_status", param);
 };
 
 export const createIncomingProduct = async (id: number) => {

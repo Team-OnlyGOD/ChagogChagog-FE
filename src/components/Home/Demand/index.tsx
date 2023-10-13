@@ -8,12 +8,13 @@ import {
 import Text from "../../common/Text/Text";
 import HelpIcon from "../../../assets/Icon/HelpIcon";
 import { useGetProductABCQuery } from "../../../api/Products/mutation";
+import { useNavigate } from "react-router-dom";
 
 export type DayType = "year" | "month";
 
 const Demand = () => {
   const { data } = useGetProductABCQuery();
-
+  const navigate = useNavigate();
   return (
     <>
       <DemandFlex>
@@ -32,7 +33,9 @@ const Demand = () => {
           >
             <DemandItemWrap>
               {data?.aproducts.map((data) => (
-                <DemandItemBox>
+                <DemandItemBox
+                  onClick={() => navigate(`/detail/${data.productId}`)}
+                >
                   <Text fontType="p3">{data.name}</Text>
                   <Text fontType="p3">{`${data.outgoingCount}회`}</Text>
                 </DemandItemBox>
@@ -55,7 +58,9 @@ const Demand = () => {
           >
             <DemandItemWrap>
               {data?.bproducts.map((data) => (
-                <DemandItemBox>
+                <DemandItemBox
+                  onClick={() => navigate(`/detail/${data.productId}`)}
+                >
                   <Text fontType="p3">{data.name}</Text>
                   <Text fontType="p3">{`${data.outgoingCount}회`}</Text>
                 </DemandItemBox>
@@ -78,7 +83,9 @@ const Demand = () => {
           >
             <DemandItemWrap>
               {data?.cproducts.map((data) => (
-                <DemandItemBox>
+                <DemandItemBox
+                  onClick={() => navigate(`/detail/${data.productId}`)}
+                >
                   <Text fontType="p3">{data.name}</Text>
                   <Text fontType="p3">{`${data.outgoingCount}회`}</Text>
                 </DemandItemBox>
